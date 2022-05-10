@@ -56,11 +56,13 @@
     <script type="text/javascript">
         var Type = '';
         function DrawCard(t) {
+        img = new Image();
             Type = t;
             let r = Math.floor(Math.random() * 50);
             if (r > 9) {
                 r = ' 0' + r;
-            } else { r = "00" + r; } document.getElementById('card' + t).src = t + "/" + r + '.jpg';
+                img.src=t+'/'+r+'jpg';
+            } else { r = "00" + r; } document.getElementById('card' + t).src = img;
             if (document.getElementById('card' + t).onerror == null) {
                 DrawCard(t);
             }
