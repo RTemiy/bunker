@@ -4,42 +4,49 @@
 <head>
     <title>Bunker Offline</title>
     <style type="text/css">
-body{
-    width: 400px;
-}
-button{
-    margin-top: 5px;
-    margin-right: 250px;
-    font-weight: bold;
-}
-img{
-    border-style:inset;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 15px;
-}
-p{
-    font-size: 20px;
-    font-weight: bold;
-}
+        body {
+            width: 400px;
+        }
 
+        button {
+            margin-top: 5px;
+            margin-right: 250px;
+            font-weight: bold;
+        }
+
+        img {
+            border-style: inset;
+            border-color: black;
+            border-width: 1px;
+            border-radius: 15px;
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body width=400>
-<meta http-equiv="Content-Type"
-    content="text/html; charset=utf-8; initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"
-    name="viewport">
-<button onclick="DrawCard('Bagage')">Багаж</button>
-<button onclick="DrawCard('Biology')">Биология</button>
-<button onclick="DrawCard('Bunker')">Бункер</button>
-<button onclick="DrawCard('Cataclysm')">Катастрофа</button>
-<button onclick="DrawCard('Conditions')">Условия</button>
-<button onclick="DrawCard('Facts')">Факты</button>
-<button onclick="DrawCard('Health')">Здоровье</button>
-<button onclick="DrawCard('Hobby')">Хобби</button>
-<button onclick="DrawCard('Profession')">Профессия</button>
-<button onclick="DrawCard('Threat')">Угроза</button>
-<p>Карта: </p>
+    <meta http-equiv="Content-Type"
+        content="text/html; charset=utf-8; initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"
+        name="viewport">
+    <p>Персонаж:</p>
+    <button onclick="DrawCard('Profession')">Профессия</button>
+    <button onclick="DrawCard('Hobby')">Хобби</button>
+    <button onclick="DrawCard('Facts')">Факты</button>
+    <button onclick="DrawCard('Bagage')">Багаж</button>
+    <button onclick="DrawCard('Biology')">Биология</button>
+    <button onclick="DrawCard('Health')">Здоровье</button>
+    <button onclick="DrawCard('Conditions')">Условия</button>
+    <hr>
+    <p>Бункер:</p>
+    <button onclick="DrawCard('Bunker')">Бункер</button>
+    <button onclick="DrawCard('Cataclysm')">Катастрофа</button>
+    <button onclick="DrawCard('Threat')">Угроза</button>
+    <hr>
+    <p>Карта: </p>
     <img width='150' height='225' id="card"></img>
     <script type="text/javascript">
         function DrawCard(t) {
@@ -55,6 +62,6 @@ p{
     //https://rtemiy.github.io/
     </script>
 
-    </body>
+</body>
 
 </html>
