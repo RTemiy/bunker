@@ -47,7 +47,13 @@
     <button onclick="DrawCard('Threat')">Угроза</button>
     <hr>
     <p>Карта: </p>
-    <img width='150' height='225' id="card" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardProfession" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardBiology" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardHealth" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardHobby" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardFacts" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardBagage" onerror="DrawCard(Type)"></img>
+    <img width='150' height='225' id="cardConditions" onerror="DrawCard(Type)"></img>
     <script type="text/javascript">
     var Type = '';
         function DrawCard(t) {
@@ -59,7 +65,7 @@
             else {
                 r = "00" + r;
             }
-            document.getElementById('card').src = t + "/" + r + '.jpg';
+            document.getElementById('card'+t).src = t + "/" + r + '.jpg';
             if(document.getElementById('card').onerror==null){
                 DrawCard(t);
             }
