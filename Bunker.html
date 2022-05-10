@@ -15,10 +15,13 @@
         }
 
         img {
+            box-shadow: 7px 3px 3px 1px gray;
             border-style: inset;
             border-color: black;
             border-width: 1px;
             border-radius: 15px;
+            width: 125px;
+            height: 185px;
         }
 
         p {
@@ -33,44 +36,37 @@
         content="text/html; charset=utf-8; initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"
         name="viewport">
     <p>Персонаж:</p>
-    <button onclick="DrawCard('Profession')">Профессия</button>
-    <button onclick="DrawCard('Biology')">Биология</button>
-    <button onclick="DrawCard('Health')">Здоровье</button>
-    <button onclick="DrawCard('Hobby')">Хобби</button>
-    <button onclick="DrawCard('Facts')">Факты</button>
-    <button onclick="DrawCard('Bagage')">Багаж</button>
-    <button onclick="DrawCard('Conditions')">Особые условия</button>
+    <hr>
+    <img src='face.jpg' id="cardProfession" onclick="DrawCard('Profession')" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' id="cardBiology" onclick="DrawCard('Biology')" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' id="cardHealth" onclick="DrawCard('Health')" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' id="cardHobby" onclick="DrawCard('Hobby')" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' id="cardFacts" onclick="DrawCard('Facts')" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' id="cardBagage" onclick="DrawCard('Bagage')" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' id="cardConditions" onclick="DrawCard('Conditions')" onerror="DrawCard(Type)"></img>
     <hr>
     <p>Бункер:</p>
-    <button onclick="DrawCard('Bunker')">Бункер</button>
-    <button onclick="DrawCard('Cataclysm')">Катастрофа</button>
-    <button onclick="DrawCard('Threat')">Угроза</button>
     <hr>
-    <p>Карта: </p>
-    <img width='150' height='225' id="cardProfession" onerror="DrawCard(Type)"></img>
-    <img width='150' height='225' id="cardBiology" onerror="DrawCard(Type)"></img>
-    <img width='150' height='225' id="cardHealth" onerror="DrawCard(Type)"></img>
-    <img width='150' height='225' id="cardHobby" onerror="DrawCard(Type)"></img>
-    <img width='150' height='225' id="cardFacts" onerror="DrawCard(Type)"></img>
-    <img width='150' height='225' id="cardBagage" onerror="DrawCard(Type)"></img>
-    <img width='150' height='225' id="cardConditions" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' onclick="DrawCard('Bunker')" id="cardBunker" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' onclick="DrawCard('Cataclysm')" id="cardCataclysm" onerror="DrawCard(Type)"></img>
+    <img src='face.jpg' onclick="DrawCard('Threat')" id="cardThreat" onerror="DrawCard(Type)"></img>
+    <hr>
+
     <script type="text/javascript">
-    var Type = '';
+        var Type = '';
         function DrawCard(t) {
-            Type=t;
+            Type = t;
             let r = Math.floor(Math.random() * 50);
             if (r > 9) {
-                r = '0' + r;
-            }
-            else {
-                r = "00" + r;
-            }
-            document.getElementById('card'+t).src = t + "/" + r + '.jpg';
-            if(document.getElementById('card').onerror==null){
+                r = ' 0' + r;
+            } else { r = "00" + r; } document.getElementById('card' + t).src = t + "/" + r + '.jpg';
+            if (document.getElementById('card' + t).onerror == null) {
                 DrawCard(t);
             }
+            if(t!='Bunker' && t!='Cataclysm' && t!='Threat'){
+            document.getElementById('card' + t).onclick = '';
+            }
         }
-    //https://rtemiy.github.io/
     </script>
 
 </body>
