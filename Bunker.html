@@ -47,9 +47,11 @@
     <button onclick="DrawCard('Threat')">Угроза</button>
     <hr>
     <p>Карта: </p>
-    <img width='150' height='225' id="card"></img>
+    <img width='150' height='225' id="card" onerror="DrawCard(Type)"></img>
     <script type="text/javascript">
+    var Type = '';
         function DrawCard(t) {
+            Type=t;
             let r = Math.floor(Math.random() * 50);
             if (r > 9) {
                 r = '0' + r;
@@ -58,6 +60,9 @@
                 r = "00" + r;
             }
             document.getElementById('card').src = t + "/" + r + '.jpg';
+            if(document.getElementById('card').onerror==null){
+                DrawCard(t);
+            }
         }
     //https://rtemiy.github.io/
     </script>
