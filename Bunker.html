@@ -36,6 +36,7 @@
         content="text/html; charset=utf-8; initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"
         name="viewport">
     <p>Персонаж:</p>
+    <button onclick="GenerateNewSet()">Новый</button>
     <hr>
     <img src='face.jpg' id="cardProfession" onclick="DrawCard('Profession')" onerror="DrawCard('Profession')"></img>
     <img src='face.jpg' id="cardBiology" onclick="DrawCard('Biology')" onerror="DrawCard('Biology')"></img>
@@ -53,17 +54,75 @@
     <hr>
 
     <script type="text/javascript">
+        var Selected = {};
+        Selected.Profession = [];
+        Selected.Biology = [];
+        Selected.Health = [];
+        Selected.Hobby = [];
+        Selected.Facts = [];
+        Selected.Bagage = [];
+        Selected.Conditions = [];
+        Selected.Bunker = [];
+        Selected.Cataclysm = [];
+        Selected.Threat = [];
+
         function DrawCard(t) {
             let r = Math.floor(Math.random() * 50);
             if (r > 9) {
-                r = ' 0' + r;           
-            } else { r = "00" + r; } document.getElementById('card' + t).src = t+'/'+r+'.jpg';
+                r = '0' + r;
+            }
+            else {
+                r = "00" + r;
+            }
+            SelectedChecker(t, r);
+        }
+        function SelectedChecker(t, r) {
+            let s = Selected[t];
+            if (s.length == 0) {
+                ErrorChecker(t, r);
+            }
+            else {
+                for (let n = 0; n < Selected[t].length; n++) {
+                    if (s[n] == r) {
+                        console.log(Selected[t][n] + "Уже была");
+                        DrawCard(t);
+                        break;
+                    }
+                    else {
+                        console.log(Selected[t][n] + "Новая");
+                        ErrorChecker(t, r);
+                        break;
+                    }
+                }
+            }
+        }
+        function ErrorChecker(t, r) {
+            document.getElementById('card' + t).src = t + '/' + r + '.jpg';
+            AddToSelected(t, r);
             if (document.getElementById('card' + t).onerror == null) {
                 DrawCard(t);
             }
-            if(t!='Bunker' && t!='Cataclysm' && t !='Threat'){
-            document.getElementById('card' + t).onclick = '';
-           }
+            else {
+                CheckExceptions(t);
+            }
+        }
+        function AddToSelected(t, r) {
+            Selected[t].push(r);
+        }
+        function CheckExceptions(t) {
+            if (t != 'Bunker' && t != 'Cataclysm' && t != 'Threat') {
+                document.getElementById('card' + t).onclick = '';
+            }
+        }
+
+        function GenerateNewSet() {
+            DrawCard('Profession');
+            DrawCard('Biology');
+            DrawCard('Health');
+            DrawCard('Hobby');
+            DrawCard('Facts');
+            DrawCard('Bagage');
+            DrawCard('Conditions');
         }
     </script>
 
