@@ -59,7 +59,7 @@
             if (r > 9) {
                 r = ' 0' + r;           
             } else { r = "00" + r; } document.getElementById('card' + t).src = t+'/'+r+'jpg';
-            if (document.getElementById('card' + t).onerror == null) {
+            if (document.getElementById('card' + t).onerror != null) {
                 DrawCard(t);
             }
             else{
