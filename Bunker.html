@@ -16,17 +16,29 @@
 
         img {
             box-shadow: 0px 0px 2px 2px gray;
-            border-style:solid;
+            border-style: solid;
             border-color: black;
             border-width: 1px;
             border-radius: 15px;
             width: 125px;
             height: 185px;
+            perspective: 1000px;
+            transition: transform 0.2s;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
 
         p {
             font-size: 20px;
             font-weight: bold;
+        }
+
+        .flip50 {
+            transform: rotateY(-90deg);
+        }
+        .flip50back {
+            transform: rotateY(0deg);
         }
     </style>
 </head>
@@ -38,22 +50,23 @@
     <p>Персонаж:</p>
     <button onclick="GenerateNewSet()">Новый</button>
     <hr>
-    <img src='face.jpg' id="cardProfession" onclick="DrawCard('Profession')" onerror="DrawCard('Profession')"></img>
-    <img src='face.jpg' id="cardBiology" onclick="DrawCard('Biology')" onerror="DrawCard('Biology')"></img>
-    <img src='face.jpg' id="cardHealth" onclick="DrawCard('Health')" onerror="DrawCard('Health')"></img>
-    <img src='face.jpg' id="cardHobby" onclick="DrawCard('Hobby')" onerror="DrawCard('Hobby')"></img>
-    <img src='face.jpg' id="cardFacts" onclick="DrawCard('Facts')" onerror="DrawCard('Facts')"></img>
-    <img src='face.jpg' id="cardBagage" onclick="DrawCard('Bagage')" onerror="DrawCard('Bagage')"></img>
-    <img src='face.jpg' id="cardConditions" onclick="DrawCard('Conditions')" onerror="DrawCard('Conditions')"></img>
+    <img src='face.jpg' id="Profession" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' id="Biology" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' id="Health" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' id="Hobby" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' id="Facts" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' id="Bagage" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' id="Conditions" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
     <hr>
     <p>Бункер:</p>
     <hr>
-    <img src='face.jpg' onclick="DrawCard('Bunker')" id="cardBunker" onerror="DrawCard('Bunker')"></img>
-    <img src='face.jpg' onclick="DrawCard('Cataclysm')" id="cardCataclysm" onerror="DrawCard('Cataclysm')"></img>
-    <img src='face.jpg' onclick="DrawCard('Threat')" id="cardThreat" onerror="DrawCard('Threat')"></img>
+    <img src='face.jpg' onclick="DrawCard(this)" id="Bunker" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' onclick="DrawCard(this)" id="Cataclysm" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' onclick="DrawCard(this)" id="Threat" onerror='DrawCard(this)'></img>
     <hr>
 
     <script type="text/javascript">
+
         var Selected = {};
         Selected.Profession = [];
         Selected.Biology = [];
@@ -66,7 +79,8 @@
         Selected.Cataclysm = [];
         Selected.Threat = [];
 
-        function DrawCard(t) {
+        function DrawCard(o) {
+            o.className = 'flip50';
             let r = Math.floor(Math.random() * 50);
             if (r > 9) {
                 r = '0' + r;
@@ -74,55 +88,57 @@
             else {
                 r = "00" + r;
             }
-            SelectedChecker(t, r);
+            setTimeout(()=>{SelectedChecker(o, r)},500);
         }
-        function SelectedChecker(t, r) {
-            let s = Selected[t];
-            if (s.length == 0) {
-                ErrorChecker(t, r);
+        function SelectedChecker(o, r) {
+            if (Selected[o.id].length == 0) {
+                ErrorChecker(o, r);
             }
             else {
-                for (let n = 0; n < Selected[t].length; n++) {
-                    if (s[n] == r) {
-                        console.log(Selected[t][n] + "Уже была");
-                        DrawCard(t);
+                for (let n = 0; n < Selected[o.id].length; n++) {
+                    if (Selected[o.id][n] == r) {
+                        console.log(Selected[o.id][n] + " — была");
+                        DrawCard(o);
                         break;
                     }
                     else {
-                        console.log(Selected[t][n] + "Новая");
-                        ErrorChecker(t, r);
+                        console.log(Selected[o.id][n] + " — старая");
+                        ErrorChecker(o, r);
                         break;
                     }
                 }
             }
         }
-        function ErrorChecker(t, r) {
-            document.getElementById('card' + t).src = t + '/' + r + '.jpg';
-            AddToSelected(t, r);
-            if (document.getElementById('card' + t).onerror == null) {
-                DrawCard(t);
+        function ErrorChecker(o, r) {
+            o.src = o.id + '/' + r + '.jpg';
+            AddToSelected(o, r);
+            if (o.onerror == null) {
+                console.log(Selected[o.id] + " — ошибка");
+                DrawCard(o);
             }
             else {
-                CheckExceptions(t);
+                console.log(Selected[o.id][Selected[o.id].length-1] + " — успешно")
+                CheckExceptions(o);
             }
         }
-        function AddToSelected(t, r) {
-            Selected[t].push(r);
+        function AddToSelected(o, r) {
+            Selected[o.id].push(r);
         }
-        function CheckExceptions(t) {
-            if (t != 'Bunker' && t != 'Cataclysm' && t != 'Threat') {
-                document.getElementById('card' + t).onclick = '';
+        function CheckExceptions(o) {
+            setTimeout(()=>{o.className = 'flip50back'},500);
+            if (o.id != 'Bunker' && o.id != 'Cataclysm' && o.id != 'Threat') {
+                o.onclick = '';
             }
         }
 
         function GenerateNewSet() {
-            DrawCard('Profession');
-            DrawCard('Biology');
-            DrawCard('Health');
-            DrawCard('Hobby');
-            DrawCard('Facts');
-            DrawCard('Bagage');
-            DrawCard('Conditions');
+            DrawCard(document.getElementById('Profession'));
+            DrawCard(document.getElementById('Biology'));
+            DrawCard(document.getElementById('Health'));
+            DrawCard(document.getElementById('Hobby'));
+            DrawCard(document.getElementById('Facts'));
+            DrawCard(document.getElementById('Bagage'));
+            DrawCard(document.getElementById('Conditions'));
         }
     </script>
 
