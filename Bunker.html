@@ -37,6 +37,7 @@
         .flip50 {
             transform: rotateY(-90deg);
         }
+
         .flip50back {
             transform: rotateY(0deg);
         }
@@ -50,13 +51,13 @@
     <p>Персонаж:</p>
     <button onclick="GenerateNewSet()">Новый</button>
     <hr>
-    <img src='face.jpg' id="Profession" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' id="Biology" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' id="Health" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' id="Hobby" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' id="Facts" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' id="Bagage" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' id="Conditions" onclick="DrawCard(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Profession" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Biology" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Health" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Hobby" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Facts" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Bagage" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' pic='' id="Conditions" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
     <hr>
     <p>Бункер:</p>
     <hr>
@@ -79,6 +80,15 @@
         Selected.Cataclysm = [];
         Selected.Threat = [];
 
+        function ToggleFlip(o) {
+            o.className = 'flip50';
+            if (o.getAttribute("src") == 'face.jpg') {                
+                setTimeout(() => { o.src = o.id + '/' + o.getAttribute("pic") + '.jpg'; o.className = 'flip50back' }, 200);
+            }
+            else{
+                setTimeout(() => { o.src = 'face.jpg'; o.className = 'flip50back' }, 200);
+            }
+        }
         function DrawCard(o) {
             o.className = 'flip50';
             let r = Math.floor(Math.random() * 50);
@@ -88,7 +98,7 @@
             else {
                 r = "00" + r;
             }
-            setTimeout(()=>{SelectedChecker(o, r)},500);
+            setTimeout(() => { SelectedChecker(o, r) }, 500);
         }
         function SelectedChecker(o, r) {
             if (Selected[o.id].length == 0) {
@@ -117,17 +127,17 @@
                 DrawCard(o);
             }
             else {
-                console.log(Selected[o.id][Selected[o.id].length-1] + " — успешно")
+                console.log(Selected[o.id][Selected[o.id].length - 1] + " — успешно")
                 CheckExceptions(o);
+                o.setAttribute('pic',r);
             }
         }
         function AddToSelected(o, r) {
             Selected[o.id].push(r);
         }
         function CheckExceptions(o) {
-            setTimeout(()=>{o.className = 'flip50back'},500);
+            setTimeout(() => { o.className = 'flip50back' }, 500);
             if (o.id != 'Bunker' && o.id != 'Cataclysm' && o.id != 'Threat') {
-                o.onclick = '';
             }
         }
 
