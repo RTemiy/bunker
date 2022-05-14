@@ -68,19 +68,29 @@
     <p>Персонаж:</p>
     <button onclick="GenerateNewSet()">Новый</button>
     <hr>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Profession" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Health" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Hobby" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Facts" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Bagage" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Conditions" onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Profession" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Health" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Hobby" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Facts" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Bagage" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Conditions" onclick="ToggleFlip(this)"
+        onerror='DrawCard(this)'></img>
     <hr>
     <p>Бункер:</p>
     <hr>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Bunker" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Cataclysm" onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Threat" onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Bunker"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Cataclysm"
+        onerror='DrawCard(this)'></img>
+    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Threat"
+        onerror='DrawCard(this)'></img>
     <hr>
 
     <script type="text/javascript">
@@ -98,12 +108,17 @@
         Selected.Threat = [];
 
         function ToggleFlip(o) {
-            o.className = 'flip50';
-            if (o.getAttribute("src") == 'face.jpg') {
-                setTimeout(() => { o.src = o.id + '/' + o.getAttribute("pic") + '.jpg'; o.className = 'flip50back' }, 200);
+            if (o.getAttribute("class") == 'imgcontext') {
+                o.className = 'flip50back';
             }
             else {
-                setTimeout(() => { o.src = 'face.jpg'; o.className = 'flip50back' }, 200);
+                o.className = 'flip50';
+                if (o.getAttribute("src") == 'face.jpg') {
+                    setTimeout(() => { o.src = o.id + '/' + o.getAttribute("pic") + '.jpg'; o.className = 'flip50back' }, 200);
+                }
+                else {
+                    setTimeout(() => { o.src = 'face.jpg'; o.className = 'flip50back' }, 200);
+                }
             }
         }
         function DrawCard(o) {
