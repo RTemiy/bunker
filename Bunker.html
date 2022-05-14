@@ -6,6 +6,9 @@
     <style type="text/css">
         body {
             width: 400px;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
         }
 
         button {
@@ -27,6 +30,15 @@
             transform-origin: center;
             transform-style: preserve-3d;
             cursor: pointer;
+        }
+        img:active{
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            z-index: 10;
+            transform: scale(1.5);
+            transition: transform 0.5s;
+            
         }
 
         p {
@@ -82,10 +94,10 @@
 
         function ToggleFlip(o) {
             o.className = 'flip50';
-            if (o.getAttribute("src") == 'face.jpg') {                
+            if (o.getAttribute("src") == 'face.jpg') {
                 setTimeout(() => { o.src = o.id + '/' + o.getAttribute("pic") + '.jpg'; o.className = 'flip50back' }, 200);
             }
-            else{
+            else {
                 setTimeout(() => { o.src = 'face.jpg'; o.className = 'flip50back' }, 200);
             }
         }
@@ -129,7 +141,7 @@
             else {
                 console.log(Selected[o.id][Selected[o.id].length - 1] + " — успешно")
                 CheckExceptions(o);
-                o.setAttribute('pic',r);
+                o.setAttribute('pic', r);
             }
         }
         function AddToSelected(o, r) {
