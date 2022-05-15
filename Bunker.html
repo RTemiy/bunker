@@ -109,6 +109,27 @@
         .flip50back {
             transform: rotateY(0deg);
         }
+
+        .invisleft {
+            position: relative;
+            left: -400px;            
+        }
+
+        .appearleft {
+            position: relative;
+            left: 0px;
+            transition: left 5s ease 0s;
+        }
+
+        .invistrans {
+            opacity: 0;
+        }
+
+        .appeartrans {
+            opacity: 1;
+            transition-property: opacity;
+            transition-duration: 5s;
+        }
     </style>
 </head>
 
@@ -118,12 +139,12 @@
         name="viewport">
     <hr>
 
-    <p>
+    <p class="invistrans">
         <Персонаж> <button onclick="GenerateNewSet()">[ Новый ]</button>
     </p>
 
     <hr>
-    <div>
+    <div class="invisleft" onload="">
         <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Profession"
             onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
         <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)"
@@ -140,11 +161,11 @@
             onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
     </div>
     <hr>
-    <p>
+    <p class="invistrans">
         <Бункер>
     </p>
     <hr>
-    <div>
+    <div class="invisleft">
         <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="Zoom(this)" id="Bunker"
             onerror='DrawCard(this)'></img>
         <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="Zoom(this)" id="Cataclysm"
@@ -253,6 +274,16 @@
             DrawCard(document.getElementById('Bagage'));
             DrawCard(document.getElementById('Conditions'));
         }
+        function Appear() {
+            let a = document.getElementsByClassName('invistrans');
+            a.item(0).setAttribute('class', 'appeartrans');
+            a.item(0).setAttribute('class', 'appeartrans');
+            let b = document.getElementsByClassName('invisleft');
+            b.item(0).setAttribute('class', 'appearleft');
+            b.item(0).setAttribute('class', 'appearleft');
+
+        }
+        setTimeout(() => { Appear(); }, 1000);
     </script>
 
 </body>
