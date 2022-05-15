@@ -8,6 +8,8 @@
         * {
             margin-left: 0;
             margin-right: 0;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         body {
@@ -22,9 +24,12 @@
             background: url(background.jpg) rgb(94, 94, 94);
         }
 
+        div {
+            background: url(divback.jpg) rgb(94, 94, 94);
+            width: 410px;
+        }
+
         button {
-            margin-top: 5px;
-            margin-right: 250px;
             font-weight: bold;
             border-style: solid;
             background-color: gray;
@@ -54,6 +59,8 @@
             height: 21px;
             border-style: none;
             left: 0px;
+            margin: 0;
+            padding: 0;
             margin-left: 0px;
             width: 410px;
         }
@@ -89,32 +96,38 @@
         content="text/html; charset=utf-8; initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, minimal-ui"
         name="viewport">
     <hr>
-    <p>Персонаж:</p>
-    <button onclick="GenerateNewSet()">Новый</button>
+
+        <p>Персонаж: <button onclick="GenerateNewSet()">Новый</button></p>
+
     <hr>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Profession" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Health" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Hobby" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Facts" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Bagage" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Conditions" onclick="ToggleFlip(this)"
-        onerror='DrawCard(this)'></img>
-    <hr>
-    <p>Бункер:</p>
-    <hr>
-    <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Bunker"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Cataclysm"
-        onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Threat"
-        onerror='DrawCard(this)'></img>
+    <div>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Profession"
+            onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Health" onclick="ToggleFlip(this)"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Hobby" onclick="ToggleFlip(this)"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Facts" onclick="ToggleFlip(this)"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Bagage" onclick="ToggleFlip(this)"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Conditions"
+            onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
+        </div>
+        <hr>
+        <p>Бункер:</p>
+        <hr>
+        <div>
+        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Bunker"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Cataclysm"
+            onerror='DrawCard(this)'></img>
+        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Threat"
+            onerror='DrawCard(this)'></img>
+        </div>
+
     <hr>
 
     <script type="text/javascript">
