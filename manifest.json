@@ -1,10 +1,10 @@
 {
-    "short_name": "BOCG",
+    "short_name": "Bunker Offline",
     "name": "Card game: Bunker Offline",
     "icons": [
       {
-        "src": "https://rtemiy.github.io/bunker/favicon.jpg",
-        "type": "image/jpg",
+        "src": "https://rtemiy.github.io/bunker/favicon.png",
+        "type": "image/png",
         "sizes": "144x144"
       }
     ],
