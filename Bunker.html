@@ -10,12 +10,13 @@
             margin-right: 0;
             margin-top: 0;
             margin-bottom: 0;
-            color: white;
+            color: rgb(92, 255, 92);
             font: 15px Inconsolata, monospace;
-            text-shadow: 0 0 5px #C8C8C8;
+            text-shadow: 0 0 5px rgb(95, 184, 95);
         }
 
         body {
+
             width: 400px;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -24,24 +25,40 @@
             -ms-user-select: none;
             user-select: none;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            background: url(background.jpg) rgb(94, 94, 94);
+            background-color: black;
+            background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
         }
+
         div {
             color: black;
             background: url(divback.jpg) rgb(94, 94, 94);
-            width: 410px;
+            width: 405px;
             border-style: solid;
             border-width: 2px;
         }
 
+        .back {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: repeating-linear-gradient(0deg,
+                    rgba(black, 0.15),
+                    rgba(black, 0.15) 1px,
+                    transparent 1px,
+                    transparent 2px);
+        }
+
         button {
             font-weight: bold;
-            border-style: solid;
+            border-style: hidden;
             background-color: gray;
+            background-color: transparent;
             border-radius: 15px;
             border-width: 1px;
             width: 100px;
-            color: white;
         }
 
         img {
@@ -101,7 +118,9 @@
         name="viewport">
     <hr>
 
-    <p>Персонаж: <button onclick="GenerateNewSet()">Новый</button></p>
+    <p>
+        <Персонаж> <button onclick="GenerateNewSet()">[ Новый ]</button>
+    </p>
 
     <hr>
     <div>
@@ -121,14 +140,16 @@
             onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
     </div>
     <hr>
-    <p>Бункер:</p>
+    <p>
+        <Бункер>
+    </p>
     <hr>
     <div>
-        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Bunker"
+        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="Zoom(this)" id="Bunker"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Cataclysm"
+        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="Zoom(this)" id="Cataclysm"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Threat"
+        <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="Zoom(this)" id="Threat"
             onerror='DrawCard(this)'></img>
     </div>
 
@@ -147,6 +168,15 @@
         Selected.Bunker = [];
         Selected.Cataclysm = [];
         Selected.Threat = [];
+
+        function Zoom(o) {
+            if (o.getAttribute('class') == 'imgcontext') {
+                o.className = 'flip50back';
+            }
+            else {
+                o.className = 'imgcontext';
+            }
+        }
 
         function ToggleFlip(o) {
             if (o.getAttribute("class") == 'imgcontext') {
