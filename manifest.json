@@ -9,9 +9,9 @@
       }
     ],
     "start_url": "https://rtemiy.github.io/bunker/Bunker.html",
-    "background_color": "yellow",
+    "background_color": "grey",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "yellow"
+    "theme_color": "black"
 }
     
