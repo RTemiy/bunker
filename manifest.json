@@ -1,0 +1,17 @@
+{
+    "short_name": "BCG",
+    "name": "Card game: Bunker",
+    "icons": [
+      {
+        "src": "https://rtemiy.github.io/Bunker/favicon.jpg",
+        "type": "image/jpg",
+        "sizes": "273x273"
+      }
+    ],
+    "start_url": "https://rtemiy.github.io/Bunker/Bunker.html",
+    "background_color": "yellow",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "yellow"
+}
+    
