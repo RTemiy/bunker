@@ -14,6 +14,7 @@
             -ms-user-select: none;
             user-select: none;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            background: url(background.jpg)  rgb(94, 94, 94) ;
         }
 
         button {
@@ -23,7 +24,7 @@
         }
 
         img {
-            box-shadow: 0px 0px 2px 2px gray;
+            box-shadow: 0px 0px 1px 1px black;
             border-style: solid;
             border-color: black;
             border-width: 1px;
@@ -35,6 +36,14 @@
             transform-origin: center;
             transform-style: preserve-3d;
             cursor: zoom-in;
+        }
+        hr{
+            background: url(balk.jpg)  rgb(94, 94, 94) ;
+            width: 400px;
+            height: 25px;
+            border-style: none;
+            left: 0px;
+            margin-left: 0px;
         }
 
         .imgcontext {
@@ -50,6 +59,7 @@
         p {
             font-size: 20px;
             font-weight: bold;
+            color: azure;
         }
 
         .flip50 {
@@ -86,11 +96,11 @@
     <hr>
     <p>Бункер:</p>
     <hr>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Bunker"
+    <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Bunker"
         onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Cataclysm"
+    <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Cataclysm"
         onerror='DrawCard(this)'></img>
-    <img src='face.jpg' oncontextmenu='this.className="imgcontext"' onclick="DrawCard(this)" id="Threat"
+    <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Threat"
         onerror='DrawCard(this)'></img>
     <hr>
 
