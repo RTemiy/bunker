@@ -10,6 +10,9 @@
             margin-right: 0;
             margin-top: 0;
             margin-bottom: 0;
+            color: white;
+            font: 15px Inconsolata, monospace;
+            text-shadow: 0 0 5px #C8C8C8;
         }
 
         body {
@@ -23,8 +26,8 @@
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
             background: url(background.jpg) rgb(94, 94, 94);
         }
-
         div {
+            color: black;
             background: url(divback.jpg) rgb(94, 94, 94);
             width: 410px;
             border-style: solid;
@@ -80,7 +83,6 @@
         p {
             font-size: 20px;
             font-weight: bold;
-            color: azure;
         }
 
         .flip50 {
@@ -99,7 +101,7 @@
         name="viewport">
     <hr>
 
-        <p>Персонаж: <button onclick="GenerateNewSet()">Новый</button></p>
+    <p>Персонаж: <button onclick="GenerateNewSet()">Новый</button></p>
 
     <hr>
     <div>
@@ -117,18 +119,18 @@
             onerror='DrawCard(this)'></img>
         <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Conditions"
             onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-        </div>
-        <hr>
-        <p>Бункер:</p>
-        <hr>
-        <div>
+    </div>
+    <hr>
+    <p>Бункер:</p>
+    <hr>
+    <div>
         <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Bunker"
             onerror='DrawCard(this)'></img>
         <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Cataclysm"
             onerror='DrawCard(this)'></img>
         <img src='face.jpg' oncontextmenu='DrawCard(this)' onclick="this.className='imgcontext';" id="Threat"
             onerror='DrawCard(this)'></img>
-        </div>
+    </div>
 
     <hr>
 
