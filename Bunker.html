@@ -12,12 +12,11 @@
             margin-top: 0;
             margin-bottom: 0;
             color: rgb(92, 255, 92);
-            font: 15px Inconsolata, monospace;
+            font: 13px Inconsolata, monospace;
             text-shadow: 0 0 5px rgb(95, 184, 95);
         }
 
         body {
-
             width: 400px;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -90,14 +89,13 @@
         .imgcontext {
             position:fixed;
             left: 150px;
-            top: 150px;
+            top: 250px;
             z-index: 10;
             transform:scale(2.5);
             transition: transform 0.5s;
         }
 
         p {
-            font-size: 20px;
             font-weight: bold;
         }
 
@@ -144,19 +142,19 @@
 
     <hr>
     <div class="invisleft" onload="">
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Profession"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Profession"
             onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Biology" onclick="ToggleFlip(this)"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Health" onclick="ToggleFlip(this)"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Health" onclick="ToggleFlip(this)"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Hobby" onclick="ToggleFlip(this)"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Hobby" onclick="ToggleFlip(this)"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Facts" onclick="ToggleFlip(this)"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Facts" onclick="ToggleFlip(this)"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Bagage" onclick="ToggleFlip(this)"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Bagage" onclick="ToggleFlip(this)"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='this.className="imgcontext"' pic='' id="Conditions"
+        <img src='face.jpg' oncontextmenu='this.className="imgcontext"' pic='' id="Conditions"
             onclick="ToggleFlip(this)" onerror='DrawCard(this)'></img>
     </div>
     <hr>
@@ -165,14 +163,18 @@
     </p>
     <hr>
     <div class="invisleft">
-        <img src='face.jpg' onmouseover='Zoom(this)' onclick="DrawCard(this)" id="Bunker"
+        <img src='face.jpg' oncontextmenu='Zoom(this)' onclick="DrawCard(this)" id="Bunker"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='Zoom(this)' onclick="DrawCard(this)" id="Cataclysm"
+        <img src='face.jpg' oncontextmenu='Zoom(this)' onclick="DrawCard(this)" id="Cataclysm"
             onerror='DrawCard(this)'></img>
-        <img src='face.jpg' onmouseover='Zoom(this)' onclick="DrawCard(this)" id="Threat"
+        <img src='face.jpg' oncontextmenu='Zoom(this)' onclick="DrawCard(this)" id="Threat"
             onerror='DrawCard(this)'></img>
     </div>
 
+    <hr>
+    <p class="invistrans">
+        |||||| <Администратор> *RTemiy* ||||||
+    </p>
     <hr>
 
     <script type="text/javascript">
@@ -275,6 +277,7 @@
         }
         function Appear() {
             let a = document.getElementsByClassName('invistrans');
+            a.item(0).setAttribute('class', 'appeartrans');
             a.item(0).setAttribute('class', 'appeartrans');
             a.item(0).setAttribute('class', 'appeartrans');
             let b = document.getElementsByClassName('invisleft');
