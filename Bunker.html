@@ -7,17 +7,14 @@
     <title>Bunker Offline</title>
     <style type="text/css">
         * {
-            margin-left: 0;
-            margin-right: 0;
-            margin-top: 0;
-            margin-bottom: 0;
+            margin: 0;
+            padding: 0;
             color: rgb(92, 255, 92);
             font: 13px Inconsolata, monospace;
             text-shadow: 0 0 5px rgb(95, 184, 95);
         }
 
         body {
-            width: 400px;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -32,7 +29,6 @@
         div {
             color: black;
             background: url(divback.jpg) rgb(94, 94, 94);
-            width: 405px;
             border-style: solid;
             border-width: 2px;
         }
@@ -67,8 +63,8 @@
             border-color: black;
             border-width: 2px;
             border-radius: 15px;
-            width: 125px;
-            height: 185px;
+            width: calc(100%/3.5);
+            height: calc(100%/3.5);
             perspective: 1000px;
             transition: transform 0.2s;
             transform-origin: center;
@@ -80,10 +76,6 @@
             height: 21px;
             border-style: none;
             left: 0px;
-            margin: 0;
-            padding: 0;
-            margin-left: 0px;
-            width: 410px;
         }
 
         .imgcontext {
@@ -130,7 +122,7 @@
     </style>
 </head>
 
-<body oncontextmenu='return false;' width=400>
+<body oncontextmenu='return false;'>
     <meta http-equiv="Content-Type"
         content="text/html; charset=utf-8; initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"
         name="viewport">
