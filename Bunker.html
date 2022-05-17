@@ -87,11 +87,11 @@
         }
 
         .imgcontext {
-            position:fixed;
+            position: fixed;
             left: 150px;
             top: 250px;
             z-index: 10;
-            transform:scale(2.5);
+            transform: scale(2.5);
             transition: transform 0.5s;
         }
 
@@ -109,7 +109,7 @@
 
         .invisleft {
             position: relative;
-            left: -400px;            
+            left: -400px;
         }
 
         .appearleft {
@@ -172,9 +172,9 @@
     </div>
 
     <hr>
-    <p class="invistrans">
+    <footer class="invistrans">
         |||||| <Администратор> *RTemiy* ||||||
-    </p>
+    </footer>
     <hr>
 
     <script type="text/javascript">
@@ -216,7 +216,7 @@
         }
         function DrawCard(o) {
             o.className = 'flip50';
-            let r = Math.floor(Math.random() * 50);
+            let r = Math.floor(Math.random() * getAmount(o));
             if (r > 9) {
                 r = '0' + r;
             }
@@ -224,6 +224,40 @@
                 r = "00" + r;
             }
             setTimeout(() => { SelectedChecker(o, r) }, 500);
+        }
+        function getAmount(o) {
+            switch (o.id) {
+                case 'Profession':
+                    return (50);
+                    break;
+                case 'Biology':
+                    return (30);
+                    break;
+                case 'Health':
+                    return (30);
+                    break;
+                case 'Hobby':
+                    return (30);
+                    break;
+                case 'Facts':
+                    return (50);
+                    break;
+                case 'Bagage':
+                    return (30);
+                    break;
+                case 'Conditions':
+                    return (30);
+                    break;
+                case 'Bunker':
+                    return (30);
+                    break;
+                case 'Cataclysm':
+                    return (20);
+                    break;
+                case 'Threat':
+                    return (11);
+                    break;
+            }
         }
         function SelectedChecker(o, r) {
             if (Selected[o.id].length == 0) {
